@@ -1,6 +1,6 @@
 <!-- Footer -->
 <footer>
-  <p>Created by: Henrik Ekelund<br>
+  <p>Created by: CodeRoom<br>
   <a href="mailto:henrik@coderoom.se">henrik@coderoom.se</a></p>
 </footer>
 

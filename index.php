@@ -5,10 +5,6 @@ session_start();
 include 'view/partials/header.php';
 include 'view/partials/navigation.php';
 
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     include './model/db_user_registration.php';
-// }
-
 //Catch and direct to home
 $page = basename($_GET['path']);
 

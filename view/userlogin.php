@@ -1,13 +1,13 @@
 <h1>Please login with your credentials.</h1>
 
-<form action="/action_page.php">
+<form action="./model/db_user_login.php" method="post">
 
- <label for="username">My Username:</label>
- <input type="text" id="username" name="username"><br><br>
+ <label for="loginuser">My Username:</label>
+ <input type="text" name="loginuser"><br><br>
 
- <label for="password">My Password:</label>
- <input type="password" id="password" name="password"><br><br>
+ <label for="loginpass">My Password:</label>
+ <input type="password" name="loginpass"><br><br>
 
- <input type="submit" value="Submit">
+ <input type="submit" value="Logga in">
 
 </form>
