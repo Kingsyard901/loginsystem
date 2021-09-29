@@ -1,6 +1,6 @@
 <h1>Please fill out the registration.</h1>
 
-<form action="./model/db_user_registration.php" method="post">
+<form action="./model/db_user_registration.php" method="POST">
 
   <label for="userfirst">First name:</label>
   <input type="text" name="userfirst"><br><br>
