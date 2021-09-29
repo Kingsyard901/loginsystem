@@ -8,6 +8,6 @@
  <label for="loginpass">My Password:</label>
  <input type="password" name="loginpass"><br><br>
 
- <input type="submit" value="Logga in">
+ <input type="submit" value="submit">
 
 </form>

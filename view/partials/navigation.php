@@ -7,5 +7,5 @@
  <li><a href="adminlogin">Admin Login</a></li>
  <li><a href="adminregistration">Admin Registration</a></li>
  <li><a href="user_profile">My Profile</a></li>
- <li style="float:right"><a class="active" href="logout">Logga ut (<?=$_SESSION['username']?>)</a></li>
+ <li style="float:right"><a class="active" href="logout">Logga ut (<?=$_SESSION['userName']?>)</a></li>
 </ul>

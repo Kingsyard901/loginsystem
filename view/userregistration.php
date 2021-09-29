@@ -8,7 +8,7 @@
   <label for="userlast">Last name:</label>
   <input type="text" name="userlast"><br><br>
 
-  <label for="usersemail">Eamil:</label>
+  <label for="usersemail">Email:</label>
   <input type="text" name="usersemail"><br><br>
 
   <label for="usersname">Username:</label>
