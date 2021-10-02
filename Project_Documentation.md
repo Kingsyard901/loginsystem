@@ -7,4 +7,9 @@
 - Feed - Page where users can post updates/info (like twitter or FB)
 - Users can reply/comment on the posts.
 - Access levels on users. Superuser / Admin / User.
-- 
+
+# SETUP
+This login system is based on implementation of 46elks SMS/TEXT solution for sending 6 digit log-in code.
+- Add your user- and password code from your 46elks account in the .htaccess file.
+SetEnv ELKSUSER ""
+SetEnv ELKSPASS ""

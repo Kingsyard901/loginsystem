@@ -3,6 +3,7 @@
 unset( $_SESSION['userName'] );
 unset( $_SESSION['phone'] );
 unset( $_SESSION['numberToVerify'] );
+unset( $_SESSION['loggedIn'] );
 
 header( 'Location: ./home' );
 

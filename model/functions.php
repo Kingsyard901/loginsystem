@@ -25,31 +25,6 @@ function uidExists($conn, $userName) {
   mysqli_stmt_close($stmt);
 }
 
-
-// function loginUser($conn, $userName, $userPass) {
-//   $uidExists = uidExists($conn, $userName);
-//
-//   if ($uidExists === false) {
-//     header("Location: ../page404");
-//     exit();
-//   }
-//
-//   $pwdHashed = $uidExists['password'];
-//   $checkPwd = password_verify($userPass, $pwdHashed);
-//
-//   if ($checkPwd === false) {
-//     header("Location: ../userlogin");
-//     exit();
-//   } else if ($checkPwd === true) {
-//     session_start();
-//     $_SESSION['userName'] = $uidExists['username'];
-//     $_SESSION['phone'] = $uidExists['cellphone_nr'];
-//     sendSMS();
-//     header("Location: ../smsverify");
-//     exit();
-//   }
-// }
-
 function loginUser($conn, $userName, $userPass) {
   $uidExists = uidExists($conn, $userName);
 
@@ -73,7 +48,7 @@ function loginUser($conn, $userName, $userPass) {
     $_SESSION['numberToVerify'] = $numberVerification;
 
     $sms = array(
-      'from' => 'PHPLogin',   /* Can be up to 11 alphanumeric characters */
+      'from' => 'MittLogin',   /* Can be up to 11 alphanumeric characters */
       'to' => $_SESSION['phone'],  /* The mobile number you want to send to */
       'message' => $_SESSION['numberToVerify'],
     );

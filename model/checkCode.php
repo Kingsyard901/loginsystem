@@ -8,6 +8,8 @@ if ($codeInput != $_SESSION['numberToVerify']) {
   header("Location: ../page404");
   exit();
 } else {
+  session_start();
+  $_SESSION['loggedIn'] = true;
   header("Location: ../user_profile");
   unset( $_SESSION['numberToVerify'] );
   exit();
