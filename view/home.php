@@ -1,6 +1,7 @@
 <?php
 
 echo $_SESSION['userName'];
+echo $_SESSION['phone'];
 
  ?>
 

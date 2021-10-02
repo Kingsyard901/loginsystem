@@ -26,6 +26,30 @@ function uidExists($conn, $userName) {
 }
 
 
+// function loginUser($conn, $userName, $userPass) {
+//   $uidExists = uidExists($conn, $userName);
+//
+//   if ($uidExists === false) {
+//     header("Location: ../page404");
+//     exit();
+//   }
+//
+//   $pwdHashed = $uidExists['password'];
+//   $checkPwd = password_verify($userPass, $pwdHashed);
+//
+//   if ($checkPwd === false) {
+//     header("Location: ../userlogin");
+//     exit();
+//   } else if ($checkPwd === true) {
+//     session_start();
+//     $_SESSION['userName'] = $uidExists['username'];
+//     $_SESSION['phone'] = $uidExists['cellphone_nr'];
+//     sendSMS();
+//     header("Location: ../smsverify");
+//     exit();
+//   }
+// }
+
 function loginUser($conn, $userName, $userPass) {
   $uidExists = uidExists($conn, $userName);
 
@@ -43,7 +67,40 @@ function loginUser($conn, $userName, $userPass) {
   } else if ($checkPwd === true) {
     session_start();
     $_SESSION['userName'] = $uidExists['username'];
-    header("Location: ../home");
-    exit();
+    $_SESSION['phone'] = $uidExists['cellphone_nr'];
+
+    include '../controller/sms_number_generator.php';
+    $_SESSION['numberToVerify'] = $numberVerification;
+
+    $sms = array(
+      'from' => 'PHPLogin',   /* Can be up to 11 alphanumeric characters */
+      'to' => $_SESSION['phone'],  /* The mobile number you want to send to */
+      'message' => $_SESSION['numberToVerify'],
+    );
+
+    $username = getenv('ELKSUSER');
+    $password = getenv('ELKSPASS');
+
+    $context = stream_context_create(array(
+      'http' => array(
+        'method' => 'POST',
+        'header'  => "Authorization: Basic ".
+                     base64_encode($username.':'.$password). "\r\n".
+                     "Content-type: application/x-www-form-urlencoded\r\n",
+        'content' => http_build_query($sms),
+        'timeout' => 10
+    )));
+
+    $response = file_get_contents(
+      'https://api.46elks.com/a1/SMS', false, $context );
+
+    if (!strstr($http_response_header[0],"200 OK"))
+      return $http_response_header[0];
+
+    // return $response;
+
   }
+
+  header("Location: ../smsverify");
+  exit();
 }

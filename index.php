@@ -17,6 +17,4 @@ if (file_exists('./view/' . $page . '.php')) {
     include './view/page404.php';
 }
 
-
-
 include 'view/partials/footer.php';
