@@ -1,3 +1,4 @@
+<!-- Basic login page / input form. After this login form, user is taken to input 6 digit code in smsverify.php -->
 <h1>Please login with your credentials.</h1>
 
 <div>

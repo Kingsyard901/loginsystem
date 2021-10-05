@@ -1,3 +1,11 @@
+<!-- Page only accessible to admin and super_admin's to register other admin users. -->
+<?php
+  if ($_SESSION['userType'] != 'super_admin') {
+    header('Location: ./page404');
+    exit();
+  }
+ ?>
+
 <h1>Register new user.</h1>
 
 <div>

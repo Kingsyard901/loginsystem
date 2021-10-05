@@ -1,4 +1,4 @@
-
+<!-- Some Home page info. -->
   <h1>Welcome to PHP Login Page</h1>
   <div>
   <h2>Features</h2>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// $codeInput = mysqli_real_escape_string($conn, $_POST['smsverificationinput']);
+// Checks the six-digit random code sent to the phonenumber against the code stashed in the session. If match, it logs user in and unsets session.
 $codeInput = htmlspecialchars($_POST['smsverificationinput']);
 
 if ($codeInput != $_SESSION['numberToVerify']) {

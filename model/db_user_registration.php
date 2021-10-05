@@ -1,5 +1,5 @@
 <?php
-
+// DB connection.
 include_once 'dbconn.php';
 
 // Using MySqli from YT tutorial to avoid SQL injection

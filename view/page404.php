@@ -1,3 +1,7 @@
+<!-- Page 404 - Usage:
+- If user is restricted / do not have access
+- If user is trying to access page that do not exist.
+ -->
 <div>
   <h1>I'm Sorry...</h1>
 

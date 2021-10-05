@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <title>Welcome</title>
+    <!-- Input of style to style components/parts between header and footer. -->
     <style type="text/css">
     input[type=text], input[type=password], select {
       width: 100%;

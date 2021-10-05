@@ -1,3 +1,4 @@
+<!-- Input for 6 digit random code sent to phonenumer. Then sends code for verification in checkCode.php -->
 <?php
 if (!$_SESSION) {
   header('Location: ../userlogin');

@@ -1,7 +1,8 @@
 <?php
-
+// Include connection to db
 include 'dbconn.php';
 
+// Checks if the user exists in db. This function is then included in function loginUser if TRUE.
 function uidExists($conn, $userName) {
   $sql = "SELECT * FROM users WHERE username = ?;";
   $stmt = mysqli_stmt_init($conn);
@@ -25,6 +26,7 @@ function uidExists($conn, $userName) {
   mysqli_stmt_close($stmt);
 }
 
+// Function to login the user after checking via above function if user exists.
 function loginUser($conn, $userName, $userPass) {
   $uidExists = uidExists($conn, $userName);
 
@@ -32,30 +34,36 @@ function loginUser($conn, $userName, $userPass) {
     header("Location: ../page404");
     exit();
   }
-
+  
+// unhashes the password for comparison
   $pwdHashed = $uidExists['password'];
   $checkPwd = password_verify($userPass, $pwdHashed);
 
   if ($checkPwd === false) {
     header("Location: ../userlogin");
     exit();
-  } else if ($checkPwd === true) {
+  } else if ($checkPwd === true) { //if password comparison is correct, begin to login user by fetching db data and setting sessions.
     session_start();
     $_SESSION['userName'] = $uidExists['username'];
     $_SESSION['phone'] = $uidExists['cellphone_nr'];
+    $_SESSION['userType'] = $uidExists['is_user'];
 
+// Generate a random number to be sent to registered phonenumber.
     include '../controller/sms_number_generator.php';
     $_SESSION['numberToVerify'] = $numberVerification;
 
+    // compiling sms
     $sms = array(
       'from' => 'MittLogin',   /* Can be up to 11 alphanumeric characters */
       'to' => $_SESSION['phone'],  /* The mobile number you want to send to */
       'message' => $_SESSION['numberToVerify'],
     );
 
+// Personal API keys for connection to 46elks API
     $username = getenv('ELKSUSER');
     $password = getenv('ELKSPASS');
 
+// API for sending SMS/Text message
     $context = stream_context_create(array(
       'http' => array(
         'method' => 'POST',

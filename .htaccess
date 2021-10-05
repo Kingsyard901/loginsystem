@@ -5,6 +5,6 @@ RewriteCond  %{REQUEST_FILENAME} !-d
 #RewriteRule . index.php [L]
 RewriteRule ^([^?]*)$ index.php?path=$1 [NC,L,QSA]
 
-#Username and password as environment variables for 46elks text/SMS function.
+#Username and password set as local environment variables for 46elks text/SMS function.
 SetEnv ELKSUSER ""
 SetEnv ELKSPASS ""

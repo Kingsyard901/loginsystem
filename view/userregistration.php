@@ -1,3 +1,4 @@
+<!-- User registration form. -->
 <h1>Please fill out the registration.</h1>
 <div>
   <form action="./model/db_user_registration.php" method="POST">

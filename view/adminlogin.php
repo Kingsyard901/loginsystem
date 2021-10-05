@@ -1,6 +1,9 @@
+<!-- NOTE: NOT NEEDED. Delete logins for admin. Only need restricted registration forms. -->
+<!-- Page for Admin logins -->
 <h1>Please login with your credentials.</h1>
 
 <div>
+  <!-- CHANGE -->
   <form action="/action_page.php">
 
    <label for="username">Admin Username:</label>
